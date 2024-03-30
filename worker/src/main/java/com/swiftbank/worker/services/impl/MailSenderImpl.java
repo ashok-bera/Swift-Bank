@@ -47,7 +47,7 @@ public class MailSenderImpl implements NotificationSender {
             mail.setTo(toEmail);
             mail.setSubject(subject);
             mail.setText(messageBody);
-
+            log.info("Sending Mail to :: {}, message :: {}", toEmail, messageBody);
             javaMailSender.send(mail);
         } catch (Exception e) {
             throw new RuntimeException("Error while sending Mail :: {}" + e.getMessage());
@@ -65,7 +65,7 @@ public class MailSenderImpl implements NotificationSender {
             FileSystemResource file
                     = new FileSystemResource(attachment);
             helper.addAttachment(fileName, file);
-
+            log.info("Sending Mail to :: {}, message :: {}", toEmail, messageBody);
             javaMailSender.send(message);
         } catch (Exception e) {
             throw new RuntimeException("Error while sending Mail :: {}" + e.getMessage());
