@@ -32,13 +32,13 @@ public class UserServiceImpl implements UserService {
 
     @Override
     public BankResponse createAccount(UserRequest userRequest) {
-//        if(userRepo.existsByEmail(userRequest.getEmail())){
-//            return BankResponse.builder()
-//                    .responseCode(AppConstants.ACCOUNT_EXISTS_CODE)
-//                    .respMsg(AppConstants.ACCOUNT_EXISTS_MSG)
-//                    .accountInfo(null)
-//                    .build();
-//        }
+        if(userRepo.existsByEmail(userRequest.getEmail())){
+                return BankResponse.builder()
+                        .responseCode(AppConstants.ACCOUNT_EXISTS_CODE)
+                        .respMsg(AppConstants.ACCOUNT_EXISTS_MSG)
+                        .accountInfo(null)
+                        .build();
+       }
 
         User newuser = User.builder()
                 .firtsName(userRequest.getFirstName())
