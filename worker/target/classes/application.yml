@@ -1,0 +1,31 @@
+spring:
+  application:
+    name: worker
+  kafka:
+    bootstrap-servers: singular-trout-8919-eu1-kafka.upstash.io:9092
+    consumer:
+      auto-offset-reset: earliest
+      group-id: notification-events-group
+      security:
+        protocol: SASL_SSL
+    properties:
+      sasl:
+        mechanism: SCRAM-SHA-256
+  mail:
+    protocol: smtp
+    host: smtp.gmail.com
+    port: 587
+    username: ashokkumarbera82@gmail.com
+    password: ufeblzfdnfvlglwa
+    properties:
+      mail:
+        smtp:
+          auth: true
+          starttls:
+            enable: true
+
+
+twilio:
+  account-sid: AC10d7705e2b385486b39b21be1b0f08fd
+  auth-token: 1b2015ec1c15add01533a791da08f4e5
+  from-number: +19382232086
