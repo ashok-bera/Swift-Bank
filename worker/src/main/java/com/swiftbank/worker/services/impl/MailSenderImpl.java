@@ -3,6 +3,7 @@ package com.swiftbank.worker.services.impl;
 import com.swiftbank.worker.dtos.EventMessageDTO;
 import com.swiftbank.worker.services.NotificationSender;
 import jakarta.mail.internet.MimeMessage;
+import lombok.extern.slf4j.Slf4j;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.beans.factory.annotation.Qualifier;
 import org.springframework.beans.factory.annotation.Value;
@@ -16,6 +17,7 @@ import org.springframework.stereotype.Service;
 import java.io.File;
 import java.util.Objects;
 
+@Slf4j
 @Service(value = "MailSenderImpl")
 @PropertySource(value = "classpath:application.yml")
 public class MailSenderImpl implements NotificationSender {
